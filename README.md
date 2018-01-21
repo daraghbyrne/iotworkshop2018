@@ -41,4 +41,4 @@ By the end of this you should have a working Weather Lamp. This is only a starti
 
 ### One Circuit Many Possibilities
 
-- Option 1: [A Connected Lamp](/hue1)
+- [A Connected Lamp](/hue1)

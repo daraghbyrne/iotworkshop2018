@@ -65,6 +65,19 @@ void loop()
 }
 
 
+// Note that
+// Full brightness for an ANODE RGB LED is 0, and off 255
+// So we set our RGB values to be 255 - value (invert them)
+
+void setRGBColor( int r, int g, int b ){
+  redValue = r;
+  greenValue = g;
+  blueValue = b;
+  analogWrite(redPin, 255 - redValue);
+  analogWrite(greenPin, 255 - greenValue);
+  analogWrite(bluePin, 255 - blueValue);
+}
+
 void getData()
 {
 	// Publish an event to trigger the webhook

@@ -60,6 +60,9 @@ void loop()
 // So we set our RGB values to be 255 - value (invert them)
 
 void setRGBColor( int r, int g, int b ){
+  redValue = r;
+  greenValue = g;
+  blueValue = b;
   analogWrite(redPin, 255 - redValue);
   analogWrite(greenPin, 255 - greenValue);
   analogWrite(bluePin, 255 - blueValue);

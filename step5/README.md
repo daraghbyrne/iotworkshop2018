@@ -84,6 +84,9 @@ Then add a simple function to set the RGB Values
 
 ````
 void setRGBColor( int r, int g, int b ){
+  redValue = r;
+  greenValue = g;
+  blueValue = b;
   analogWrite(redPin, 255 - redValue);
   analogWrite(greenPin, 255 - greenValue);
   analogWrite(bluePin, 255 - blueValue);

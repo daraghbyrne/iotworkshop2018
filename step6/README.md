@@ -48,7 +48,7 @@ Add the following:
 - Event Name: `forecast`
 - URL: `https://api.forecast.io/forecast/6c14a2c2252120d69604c1e6cc2074bf/{{PARTICLE_EVENT_VALUE}}?exclude=minutely,hourly,daily,flags,alerts`
 - Request Type: `GET`
-- Request Format: `JSON`
+- Request Format: `Query Parameters`
 - Device: `Any`
 
 Select the Advanced Options:

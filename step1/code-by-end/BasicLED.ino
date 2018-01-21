@@ -1,5 +1,5 @@
 // Define a pin we'll place an LED on
-int ledPin = D0;
+int ledPin = D3;
 
 void setup()
 {

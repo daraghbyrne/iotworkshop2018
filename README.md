@@ -7,14 +7,19 @@ As part of this workshop you'll have a kit with
 - A breadboard
 - A Particle Photon
 - A Micro USB Cable (use this to power the photon)
-- A 10K Potentiometer a.k.a. a dial
 - 10K, 1K, 220Ohm Ohm Resistors
 - A single 5mm LED (components that make light)
 - An RGB LED (common anode) 
-- A momentary push button
+- A momentary push button (provided)
+- A 10K Potentiometer a.k.a. a dial (provided)
 - A Photocell / photoresistor
-- A laser cut enclosure
-- A PingPong Ball
+- A laser cut enclosure (provided)
+- A PingPong Ball (provided)
+
+*Pre-Work*
+- Solder connections to the Potentiometer + Push Button (use long strips of wire about 6" to give you room to maneuver!)
+- Assemble the laser cut box as shown (w/ tape and hot glue) 
+- Mount the Potentiometer and Pushbutton in the enclosure 
 
 By the end of this workshop you'll have built a simple ambient weather visualization using this components. It'll work like this:
 - the pushbutton will let you turn the visualization on (displaying) and off (no lights).

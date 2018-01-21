@@ -36,4 +36,9 @@ By the end of this workshop you'll have built a simple ambient weather visualiza
 - Step 8: [Better Loading](/step8)
 - Step 9: [Adding Multiple Cities](/step9)
 - Step 10: [Fine Tuning - On/Off](/step10)
-- Step 11: [Fine Tuning - Dimming](/step11)
+
+By the end of this you should have a working Weather Lamp. This is only a starting point. With a little effort, you can easily modify this example to be an ambient orb that visualizes a tonne of different content. It could be adapted to display stock prices, arriving buses, bitcoin trading, slack notifications, inbox zero, and lots more. 
+
+### One Circuit Many Possibilities
+
+- Option 1: [A Connected Lamp](/hue1)

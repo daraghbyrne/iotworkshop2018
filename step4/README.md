@@ -22,11 +22,11 @@ It really is as simple as one line of code.
 
 In the setup just add this line
 
-```Particle.variable("dial", &potReading, INT);```
+```Particle.variable("dial", potReading );```
 
 to make the potentiometer reading visible online... and 
 
-```  Particle.variable("brightness", &ledBrightness, INT);```
+```  Particle.variable("brightness", ledBrightness);```
 
 to make the LED brightness visible online too. 
 

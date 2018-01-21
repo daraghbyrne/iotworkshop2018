@@ -16,7 +16,7 @@ To make this circuit you need a Particle microcontroller, an LED, a 1KΩ resisto
 Along your Particle device you will see a series of PINs or legs labeled `D0` to `D7`. These are the digitalPins which can be used for input or output. In this case we’ll be using them for output or to turn power on and off to make the LED blink.
 
 First connect a 1K Ohm resistor (brown,black red)
-- One end of the resistor goes to a breadboard terminal directly beside the pin marked D0 
+- One end of the resistor goes to a breadboard terminal directly beside the pin marked D3 
 - The other end can go to any other row on the breadboard. 
 
 Next add an LED with the anode (longer leg) to the same row where the resistor connects. 
@@ -85,7 +85,7 @@ The first line of our program is the following.
 ```int ledPin = D3;```
 We have declared a variable of type `integer` and called it `ledPin`; that means that the variable called ledPin can only hold a whole number.
 
-We’ve also assigned this variable a reference to pin `D0`. Basically, we’ve created a variable we can use to tell other stuff in the program that we want to do things with Digital Pin Zero.
+We’ve also assigned this variable a reference to pin `D3`. Basically, we’ve created a variable we can use to tell other stuff in the program that we want to do things with Digital Pin Zero.
 
 ### Setup `setup()`
 
@@ -96,11 +96,11 @@ The first command in our program does exactly this.
 ````
 void setup() {
   // We want to tell the Photon that we'll use
-  // D0 as an output pin.
+  // D3 as an output pin.
   pinMode(ledPin, OUTPUT);
 }
 ````
-Remember that `ledPin` is a variable that maps to the digital pin zero (`D0`).
+Remember that `ledPin` is a variable that maps to the digital pin zero (`D3`).
 
 ### Digital Write
 

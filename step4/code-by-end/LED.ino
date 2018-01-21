@@ -1,8 +1,8 @@
 // Define a pin we'll place an LED on
-int ledPin = D0;
+int ledPin = D3;
 
 // Our button wired to D0
-int buttonPin = D1;
+int buttonPin = D4;
 
 // Define a pin that we'll place the pot on
 int potPin = A0;
@@ -28,9 +28,9 @@ void setup()
   // Create a cloud variable of type integer
   // called 'dial' mapped to potReading
 
-  Particle.variable("dial", &potReading, INT);
+  Particle.variable("dial", potReading );
 
-  Particle.variable("brightness", &ledBrightness, INT);
+  Particle.variable("brightness", ledBrightness );
 
 	
 }

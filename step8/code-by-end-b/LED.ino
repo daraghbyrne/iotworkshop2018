@@ -1,8 +1,19 @@
+
+int redPin = D0;    // RED pin of the LED to PWM pin **A0**
+int greenPin = D1;  // GREEN pin of the LED to PWM pin **D0**
+int bluePin = D2;   // BLUE pin of the LED to PWM pin **D1**
+int redValue = 255; // Full brightness for an ANODE RGB LED is 0, and off 255
+int greenValue = 255; // Full brightness for an ANODE RGB LED is 0, and off 255
+int blueValue = 255; // Full brightness for an ANODE RGB LED is 0, and off 255</td>
+
+
+
+
 // Define a pin we'll place an LED on
-int ledPin = D0;
+int ledPin = D3;
 
 // Our button wired to D0
-int buttonPin = D1;
+int buttonPin = D4;
 
 // Define a pin that we'll place the pot on
 int potPin = A0;
@@ -15,8 +26,8 @@ double temperature = 0;
 double precipProbability = 0;
 double precipIntensity = 0;
 
-// Store the last time 
-// the webhook was called 
+// Store the last time
+// the webhook was called
 long lastData = 0;
 
 bool isLoading = false;
@@ -26,6 +37,11 @@ void setup()
 {
   // Set up the LED for output
   pinMode(ledPin, OUTPUT);
+
+  // Set up our RGB LED pins for output
+  pinMode( redPin, OUTPUT);
+  pinMode( greenPin, OUTPUT);
+  pinMode( bluePin, OUTPUT);
 
   // For input, we define the
   // pushbutton as an input-pullup
@@ -40,12 +56,12 @@ void setup()
   Particle.variable("dial", &potReading, INT);
 
   Particle.subscribe("hook-response/forecast", handleForecastReceived, MY_DEVICES);
-	
+
 	// make the temperature values visible online
   Particle.variable("temp", &temperature, DOUBLE );
-	
+
 	getData();
-	
+
 }
 
 void loop()
@@ -59,7 +75,23 @@ void loop()
   }
 
 	displayTemperature();
+  delay( 100 );
 
+}
+
+// Note that
+// Full brightness for an ANODE RGB LED is 0, and off 255
+// So we set our RGB values to be 255 - value (invert them)
+
+void setRGBColor( int r, int g, int b ){
+
+  redValue = r;
+  greenValue = g;
+  blueValue = b;
+
+  analogWrite(redPin, 255 - redValue);
+  analogWrite(greenPin, 255 - greenValue);
+  analogWrite(bluePin, 255 - blueValue);
 }
 
 void checkForRefresh(){
@@ -79,36 +111,34 @@ void getData()
 {
 	// Publish an event to trigger the webhook
 	  Particle.publish("forecast", "40.4406,-79.9959", PRIVATE);
-		
+
 	  isLoading = true;
-		
+
 }
+
 
 
 
 void displayTemperature()
 {
-		// the temperature from 50-100F into the color range of 0-255
-    int tCol = map( (int)(temperature), 50, 100 , 0 , 255 );
-		// make sure its in that range 
-		// not bigger or smaller!
-    tCol = constrain( tCol, 0, 255 );
-		
-		// tell the photon we want to control
-		// the RGB color
-    RGB.control( true );
+	// the temperature from 40-80F into the color range of 0-255
+  int tCol = map( (int)(temperature), 40, 80 , 0 , 255 );
+	// make sure its in that range
+	// not bigger or smaller!
+  tCol = constrain( tCol, 0, 255 );
 
-		// map the color in.
-		// if t is high so is Red
-		// if t is low, blue is high
-    RGB.color( tCol , 0, 255 - tCol );
+	// map the color in.
+	// if t is high so is Red
+	// if t is low, blue is high
+
+  setRGBColor( tCol , 0, 255 - tCol );
 }
 
 
 void handleForecastReceived(const char *event, const char *data) {
   // Handle the integration response
 
-  isLoading = false; 
+  isLoading = false;
 
 
   String receivedStr =  String( data );

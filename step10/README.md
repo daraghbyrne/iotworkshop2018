@@ -1,4 +1,4 @@
-# Step 10: One Last Thing
+# Step 10: Fine Tuning - On/Off
 
 
 I'm sure we won't always want our weather viz on! Let's use the push button to turn off the visualization for a bit.
@@ -14,19 +14,29 @@ First we'll need to read in our button. Add this line to the top of the loop. It
 Next, if the button is pushed (reading `LOW`) then we want to toggle it on or off like so
 
 ````
-  if( buttonState == LOW )
-  {
-    ledState = !ledState;
-  }
+	// Set the button value to 
+	// tell us if the app should be on or off
+    appState = buttonState;
+
 ````
 
 Then finally we just decide if we should display the temperature or nothing at all based on the variable `ledState`. Modify the loop to wrap `displayTemperature()`  in an `if` statement like so
 
 ````
-  if( !ledState ){
-    RGB.color( 0,0,0 );
+
+  if( !appState ){
+    setRGBColor( 0,0,0 );
 
   }else{
+
+    checkForRefresh();
+
+    if( isLoading ) {
+      digitalWrite( ledPin, HIGH );
+      delay( 100 );
+      digitalWrite( ledPin, LOW );
+    }
+
     displayTemperature();
   }
 

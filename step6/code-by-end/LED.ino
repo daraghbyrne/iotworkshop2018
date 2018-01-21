@@ -1,14 +1,27 @@
+int redPin = D0;    // RED pin of the LED to PWM pin **A0**
+int greenPin = D1;  // GREEN pin of the LED to PWM pin **D0**
+int bluePin = D2;   // BLUE pin of the LED to PWM pin **D1**
+int redValue = 255; // Full brightness for an ANODE RGB LED is 0, and off 255
+int greenValue = 255; // Full brightness for an ANODE RGB LED is 0, and off 255
+int blueValue = 255; // Full brightness for an ANODE RGB LED is 0, and off 255</td>
+
+
 // Define a pin we'll place an LED on
-int ledPin = D0;
+int ledPin = D3;
 
 // Our button wired to D0
-int buttonPin = D1;
+int buttonPin = D4;
 
 // Define a pin that we'll place the pot on
 int potPin = A0;
 
 // Create a variable to hold the pot reading
 int potReading = 0;
+
+// Create a variable to store the LED brightness.
+int ledBrightness = 0;
+
+// Store information returned from the weather feed.
 
 String weatherIcon = "";
 double temperature = 0;
@@ -22,6 +35,11 @@ void setup()
   // Set up the LED for output
   pinMode(ledPin, OUTPUT);
 
+  // Set up our RGB LED pins for output
+  pinMode( redPin, OUTPUT);
+  pinMode( greenPin, OUTPUT);
+  pinMode( bluePin, OUTPUT);
+	
   // For input, we define the
   // pushbutton as an input-pullup
   // this uses an internal pullup resistor

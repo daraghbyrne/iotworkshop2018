@@ -61,6 +61,16 @@ int greenValue = 255; // Full brightness for an ANODE RGB LED is 0, and off 255
 int blueValue = 255; // Full brightness for an ANODE RGB LED is 0, and off 255</td>
 ````
 
+In the `setup()` add the pins as outputs
+
+````
+  // Set up our RGB LED pins for output
+  pinMode( redPin, OUTPUT);
+  pinMode( greenPin, OUTPUT);
+  pinMode( bluePin, OUTPUT);
+	
+````
+
 Then, start with an empty loop like so
 
 ````

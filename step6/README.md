@@ -4,7 +4,7 @@ All the pieces are in place. We just need to bring them together...
 
 But first, how do we know the weather? 
 
-Particle allows us to make requests for bits of information online through something called "Webhooks".  
+Particle allows us to make requests for bits of information from online sources by using something called "Webhooks". When the Photon wants to find out come info from an online service (the weather, how many emails you have, if a stock price is up or down, etc.), the Photon can trigger a request to that service. The Particle Cloud manages the request to that source and returns it to the Photon.
 
 The way webhooks work is as follows:
 
@@ -27,6 +27,35 @@ We're going to add these into our code and have it look up weather information f
 ### Starting point.
 
 Let's start fresh after all those experiments. You might want to [copy and paste from this starting point](code-at-start/LED.ino) or create a new project using this code. As always the finished code for this step is in [the folder ](code-by-end/LED.ino) or create a new project using this code.
+
+
+### Setting up your webhook
+
+Go to the [Particle Console](https://console.particle.io/devices) and sign in. On the left hand side there's a small icon bar, you'll find an option for 'Integrations'. 
+
+![Add a new integration](webhook-step1.jpeg)
+
+Click it and choose the option to add a new integration. You'll get four options like this. Choose the webhook.
+
+![Integration Options](webhook-step2.jpeg)
+
+You'll then be asked to add the info for your webhook. 
+
+![WebHook Info](webhook-step3.jpeg)
+
+Add the following: 
+
+- Event Name: `forecast`
+- URL: `https://api.forecast.io/forecast/6c14a2c2252120d69604c1e6cc2074bf/{{PARTICLE_EVENT_VALUE}}?exclude=minutely,hourly,daily,flags,alerts`
+- Request Type: `GET`
+- Request Format: `JSON`
+- Device: `Any`
+
+Select the Advanced Options:
+
+Under `Response Template`, add the following
+
+`{{#currently}}{{icon}}~{{temperature}}~{{precipProbability}}~{{precipIntensity}}{{/currently}}`
 
 
 ### Getting Weather Information

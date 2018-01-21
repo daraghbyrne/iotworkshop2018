@@ -25,6 +25,12 @@ void setup()
 {
   // Set up the LED for output
   pinMode(ledPin, OUTPUT);
+	
+  // Set up our RGB LED pins for output
+  pinMode( redPin, OUTPUT);
+  pinMode( greenPin, OUTPUT);
+  pinMode( bluePin, OUTPUT);
+	
 
   // For input, we define the
   // pushbutton as an input-pullup

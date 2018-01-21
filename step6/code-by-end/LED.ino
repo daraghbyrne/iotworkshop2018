@@ -39,7 +39,7 @@ void setup()
   pinMode( redPin, OUTPUT);
   pinMode( greenPin, OUTPUT);
   pinMode( bluePin, OUTPUT);
-	
+
   // For input, we define the
   // pushbutton as an input-pullup
   // this uses an internal pullup resistor
@@ -53,9 +53,9 @@ void setup()
   Particle.variable("dial", &potReading, INT);
 
   Particle.subscribe("hook-response/forecast", handleForecastReceived, MY_DEVICES);
-	
+
 	getData();
-	
+
 }
 
 void loop()

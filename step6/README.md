@@ -57,6 +57,7 @@ Under `Response Template`, add the following
 
 `{{#currently}}{{icon}}~{{temperature}}~{{precipProbability}}~{{precipIntensity}}{{/currently}}`
 
+Then create the WebHook! 
 
 ### Getting Weather Information
 

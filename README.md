@@ -13,6 +13,8 @@ As part of this workshop you'll have a kit with
 - An RGB LED (common anode) 
 - A momentary push button
 - A Photocell / photoresistor
+- A laser cut enclosure
+- A PingPong Ball
 
 By the end of this workshop you'll have built a simple ambient weather visualization using this components. It'll work like this:
 - the pushbutton will let you turn the visualization on (displaying) and off (no lights).
